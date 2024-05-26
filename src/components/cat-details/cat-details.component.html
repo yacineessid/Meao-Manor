@@ -1,0 +1,71 @@
+<div *ngIf="showSuccessAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+  Thank you! We will contact you very soon.
+</div>
+<div class="container my-5" *ngIf="cat">
+  <div class="row">
+    <div class="col-md-6">
+      <img class="img-fluid rounded story-image" [src]="cat.imageUrl" alt="Cat Image">
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body" style="background-color: #ced4da;;">
+          <h5 class="card-title">{{ cat.name }}</h5>
+          <p class="card-text"><strong>Age:</strong> {{ cat.age }} years</p>
+          <p class="card-text"><strong>Breed:</strong> {{ cat.breed }}</p>
+          <p class="card-text"><strong>Gender:</strong> {{ cat.gender }}</p>
+          <p class="card-text"><strong>Adoption Reason:</strong> {{ cat.adoptionReason }}</p>
+          <p class="card-text"><strong>Description:</strong> {{ cat.description }}</p>
+          <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter">
+Adopt me          </button>
+                  </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Adoption Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #adoptionForm="ngForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" class="form-control" id="name" name="name" required ngModel #name="ngModel">
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">Name is required</div>
+          </div>
+          <div class="form-group">
+            <label for="email">Your E-mail</label>
+            <input type="email" class="form-control" id="email" name="email" required email ngModel #email="ngModel">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">Please enter a valid email</div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Your Phone</label>
+            <input type="tel" class="form-control" id="phone" name="phone" minlength="8" required ngModel #phone="ngModel">
+            <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="text-danger">Please enter a valid phone number</div>
+          </div>
+          <div class="form-group">
+            <label for="reason">Reason of Adoption</label>
+            <input type="text" class="form-control" id="reason" name="reason" required ngModel #reason="ngModel">
+            <div *ngIf="reason.invalid && (reason.dirty || reason.touched)" class="text-danger">Reason is required</div>
+          </div>
+        </form>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" [disabled]="adoptionForm.invalid" (click)="showAlert()">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,35 @@
+<div class="container my-5">
+  <div class="text-center mb-4" style="color: azure">
+    <h2>Welcome to the Luxury Cat Gallery</h2>
+    <p>Here you will find a selection of luxurious cat breeds, each with their own special characteristics. Whether you're looking for a playful companion or a regal presence, our gallery showcases the finest feline friends awaiting adoption.</p>
+  </div>
+
+  <div class="filter">
+        <span class="input-group-text"><i class="fas fa-filter" style="padding-right: 10px;"></i></span>
+        <select class="form-select"  aria-label="Filter by Gender" id="genderFilter" (change)="filterByGender($event)">
+          
+          <option value="all">All</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+  </div>
+
+  <!-- Cat cards -->
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let cat of filteredCats">
+      <div class="card h-100" style="margin: 10px;">
+        <img class="card-img-top" [src]="cat.imageUrl" alt="Card image cap" style="max-height: 215px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">{{cat.name}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{cat.gender}}</li>
+          <li class="list-group-item">Age: {{cat.age}} years</li>
+        </ul>
+        <div class="card-body text-center">
+          <a [routerLink]="['/catDetails', cat.id]" class="btn btn-info">Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

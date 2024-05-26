@@ -1,0 +1,22 @@
+.container {
+  margin-top: 10px;
+}
+
+.card {
+  margin: 10px;
+}
+
+.card-img-top {
+  max-height: 215px;
+  object-fit: cover;
+}
+
+.filter{
+  display: flex;
+  flex-direction: row;
+justify-content: center;
+gap: 3px;}
+
+.card:hover {
+  transform: translateY(-10px);
+}
