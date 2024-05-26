@@ -13,10 +13,8 @@ const routes: Routes = [
   { path: 'contact', component: AboutUsComponent },
   { path: 'privacy', component: PrivacyComponent },
   { path: 'success-stories', component: SucessStoryComponent },
-
-
-  // { path: '', redirectTo: '/catList', pathMatch: 'full' },
-  // { path: '**', component: CatListComponent }
+  { path: '', redirectTo: '/catList', pathMatch: 'full' },
+  { path: '**', component: CatListComponent }
 
 ];
 
