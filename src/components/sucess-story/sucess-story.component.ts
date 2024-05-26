@@ -12,6 +12,12 @@ interface SuccessStory {
 export class SucessStoryComponent {
   successStories:SuccessStory[]=  [
     {
+      name: 'Oscar',
+      imageUrl: '../../assets/oscar.jpg',
+      story: 'Meet Oscar, the lovable tabby from Marsa. When his family had to move away, Sarah welcomed him into her home with open arms. Now, Oscar enjoys a life of love and companionship with Sarah, his new best friend'
+    },
+    {
+     
       name: 'Bella',
       imageUrl: 'https://www.catcafelounge.com/uploads/8/0/8/6/80861148/published/catcafelounge-2020feb-26-byericadanger.jpg?1658883948',
       story: 'Bella found her forever home with the Smith family and is now enjoying a life full of love and play.'
